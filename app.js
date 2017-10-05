@@ -1,10 +1,9 @@
 var input = document.querySelector("input");
 var scoreLimit = document.getElementById("scoreLimit");
-var scoreOne = document.getElementById('scoreOne');
-scoreOne.textContent = 0;
-var scoreTwo = document.getElementById('scoreTwo');
-var playerOne = document.getElementById('playerOne');
-var playerTwo = document.getElementById('playerTwo');
+var scoreOne = document.getElementById('score-1');
+var scoreTwo = document.getElementById('score-2');
+var playerOne = document.getElementById('player-1');
+var playerTwo = document.getElementById('player-2');
 var reset = document.getElementById('reset');
 
 // Adjust Score Limit
@@ -21,9 +20,9 @@ reset.addEventListener("click", function() {
 // Player One score increment
 playerOne.addEventListener("click", function() {
 	if(scoreOne.textContent < scoreLimit.textContent) {
-	scoreOne.textContent++;
+		scoreOne.textContent++;
 		if(scoreOne.textContent === scoreLimit.textContent && scoreTwo.textContent !== scoreLimit.textContent) {
-		scoreOne.style.color = "green";
+			scoreOne.style.color = "green";
 		} 
 	}
 });
@@ -31,12 +30,15 @@ playerOne.addEventListener("click", function() {
 // Player Two score increment
 playerTwo.addEventListener("click", function() {
 	if(scoreTwo.textContent < scoreLimit.textContent) {
-	scoreTwo.textContent++;
+		scoreTwo.textContent++;
 		if(scoreTwo.textContent === scoreLimit.textContent && scoreOne.textContent !== scoreLimit.textContent) {
-		scoreTwo.style.color = "green";
+			scoreTwo.style.color = "green";
 		} 
 	}
 });
+
+
+
 
 
 
