@@ -12,18 +12,19 @@ input.addEventListener("click", function() {
 	scoreLimit.textContent = input.value;
 });
 
-// Increase Player Scores
-function increaseScore() {
-	if(scoreOne.textContent < scoreLimit.textContent) {
-		scoreOne.textContent++;
-	}
-}
-
 // Player One score increment
-playerOne.addEventListener("click", increaseScore);
+playerOne.addEventListener("click", function() {
+	if(scoreOne.textContent < scoreLimit.textContent) {
+	scoreOne.textContent++;
+	}
+});
 
 // Player Two score increment
-playerOne.addEventListener("click", increaseScore);
+playerTwo.addEventListener("click", function() {
+	if(scoreTwo.textContent < scoreLimit.textContent) {
+	scoreTwo.textContent++;
+	}
+});
 
 
 
