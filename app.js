@@ -1,14 +1,45 @@
+var playerOne = document.getElementById("playerOne");
+var playerTwo = document.getElementById("playerTwo");
+var playerOneTotal = document.getElementById("playerOneTotal");
+var playerTwoTotal = document.getElementById("playerTwoTotal");
+var scoreOne = 0;
+var scoreTwo = 0;
+var gameOver = false;
+var winningScore = 5;
+
 var input = document.querySelector("input");
 var scoreLimit = document.getElementById("scoreLimit");
-var scoreOne = document.getElementById('score-1');
-var scoreTwo = document.getElementById('score-2');
-var playerOne = document.getElementById('player-1');
-var playerTwo = document.getElementById('player-2');
-var reset = document.getElementById('reset');
+var reset = document.getElementById("reset");
 
+
+
+// Player One score increment
+playerOne.addEventListener("click", function() {
+	if(!gameOver) {
+		scoreOne++;
+		if(scoreOne === winningScore) {
+			gameOver = true;
+		}
+		playerOneTotal.textContent = scoreOne;
+	}
+});
+
+// Player Two score increment
+playerTwo.addEventListener("click", function() {
+	if(!gameOver) {
+		scoreTwo++;
+		if(scoreTwo === winningScore) {
+			gameOver = true;
+		}
+		playerTwoTotal.textContent = scoreTwo;
+	}
+});
+
+
+// * Need to refactor the following *****************
 // Adjust Score Limit
 input.addEventListener("click", function() {
-	scoreLimit.textContent = input.value;
+	scoreLimit.textContent = Number(input.value);
 });
 
 // Reset scores to zero
@@ -16,28 +47,6 @@ reset.addEventListener("click", function() {
 	scoreOne.textContent = 0;
 	scoreTwo.textContent = 0;
 });
-
-// Player One score increment
-playerOne.addEventListener("click", function() {
-	if(scoreOne.textContent < scoreLimit.textContent) {
-		scoreOne.textContent++;
-		if(scoreOne.textContent === scoreLimit.textContent && scoreTwo.textContent !== scoreLimit.textContent) {
-			scoreOne.style.color = "green";
-		} 
-	}
-});
-
-// Player Two score increment
-playerTwo.addEventListener("click", function() {
-	if(scoreTwo.textContent < scoreLimit.textContent) {
-		scoreTwo.textContent++;
-		if(scoreTwo.textContent === scoreLimit.textContent && scoreOne.textContent !== scoreLimit.textContent) {
-			scoreTwo.style.color = "green";
-		} 
-	}
-});
-
-
 
 
 
